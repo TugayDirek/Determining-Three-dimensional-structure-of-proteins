@@ -55,12 +55,19 @@ for filename in glob.glob(os.path.join('*.pdb')):
 
 #print(x)
 
+#print(x)
 '''''
 print("Alpha Carbons")
 for element in x:
     for point in element:
         print(point)
 '''
+
+for point in range(0,len(x)):
+    if(len(x[point])<=3):
+        del(x[point])
+
+
 ''''                
                  for counter_2 in range(1,len(x[j])):
 
@@ -345,3 +352,4 @@ for element in encodedAaNames:
         f_2.write("%s \r \n" % text)
 
 f_2.close()
+
