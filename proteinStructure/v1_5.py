@@ -1,6 +1,6 @@
 import numpy as np
 import os,glob
-import vpython
+#import vpython
 import math
 x = []
 i=0
@@ -108,6 +108,8 @@ for element in x:
         #print(np.degrees(angle))
         angles[i].append([np.degrees(angle)])
 
+
+'''''
 i=-1
 for element in x:
     i += 1
@@ -125,14 +127,14 @@ for element in x:
         a_2 = vpython.vector(b[0]-a[0], b[1]-a[1], b[2]-a[2])
 
         vectors[i].append(a_2)
-       
-print("Angles")
+'''
+#print("Angles")
 '''''
 for element in angles:
     for point in element:
         print(point)
 '''
-print(angles)
+#print(angles)
 #print(angles_2)
 #print(len(x[0])+len(x[1])+len(x[2]))
 #print(len(vectors))
@@ -147,6 +149,8 @@ for element in vectors:
     for point in element:
         print(point)
 '''
+
+'''''
 vectors_mag = []
 
 
@@ -160,14 +164,14 @@ for element in vectors:
             break
 
         vectors_mag[i].append(vpython.mag(element[point + 1]))
-
+'''
 '''''
 print("Vector Magnitudes")
 for element in vectors_mag:
     for point in element:
         print(point)
 '''
-
+'''''
 i=-1
 trans_vectors = []
 
@@ -187,6 +191,8 @@ for element in x:
 
 
         trans_vectors[i].append(a - b)
+        
+'''''
 '''''
 print("Transformed Points")
 for element in trans_vectors:
@@ -195,26 +201,26 @@ for element in trans_vectors:
 '''
 
 aadict = {
-"GLU":"1 0 0 0 0",
-"LEU":"0 1 0 0 0",
-"THR":"0 0 1 0 0",
-"PRO":"0 0 0 1 0",
-"ASP":"0 0 0 0 1",
-"GLN":"1 1 0 0 0",
-"HIS":"1 0 1 0 0",
-"PHE":"1 0 0 1 0",
-"ILE":"1 0 0 0 1",
-"MET":"1 1 0 1 0",
-"SER":"1 1 0 0 1",
-"TYR":"1 1 1 0 0",
-"ASN":"1 1 1 1 0",
-"LYS":"1 1 1 0 1",
-"ARG":"1 1 1 1 1",
-"ALA":"0 1 1 0 0",
-"VAL":"0 1 1 1 0",
-"GLY":"0 1 1 0 1",
-"TRP":"0 1 1 1 1",
-"CYS":"0 0 1 1 0"
+"GLU":"1 0 0 0 0","AGLU":"1 0 0 0 0","BGLU":"1 0 0 0 0","CGLU":"1 0 0 0 0","DGLU":"1 0 0 0 0",
+"LEU":"0 1 0 0 0","ALEU":"0 1 0 0 0","BLEU":"0 1 0 0 0","CLEU":"0 1 0 0 0","DLEU":"0 1 0 0 0",
+"THR":"0 0 1 0 0","ATHR":"0 0 1 0 0","BTHR":"0 0 1 0 0","CTHR":"0 0 1 0 0","DTHR":"0 0 1 0 0",
+"PRO":"0 0 0 1 0","APRO":"0 0 0 1 0","BPRO":"0 0 0 1 0","CPRO":"0 0 0 1 0","DPRO":"0 0 0 1 0",
+"ASP":"0 0 0 0 1","AASP":"0 0 0 0 1","BASP":"0 0 0 0 1","CASP":"0 0 0 0 1","DASP":"0 0 0 0 1",
+"GLN":"1 1 0 0 0","AGLN":"1 1 0 0 0","BGLN":"1 1 0 0 0","CGLN":"1 1 0 0 0","DGLN":"1 1 0 0 0",
+"HIS":"1 0 1 0 0","AHIS":"1 0 1 0 0","BHIS":"1 0 1 0 0","CHIS":"1 0 1 0 0","DHIS":"1 0 1 0 0",
+"PHE":"1 0 0 1 0","APHE":"1 0 0 1 0","BPHE":"1 0 0 1 0","CPHE":"1 0 0 1 0","DPHE":"1 0 0 1 0",
+"ILE":"1 0 0 0 1","AILE":"1 0 0 0 1","BILE":"1 0 0 0 1","CILE":"1 0 0 0 1","DILE":"1 0 0 0 1",
+"MET":"1 1 0 1 0","AMET":"1 1 0 1 0","BMET":"1 1 0 1 0","CMET":"1 1 0 1 0","DMET":"1 1 0 1 0",
+"SER":"1 1 0 0 1","ASER":"1 1 0 0 1","BSER":"1 1 0 0 1","CSER":"1 1 0 0 1","DSER":"1 1 0 0 1",
+"TYR":"1 1 1 0 0","ATYR":"1 1 1 0 0","BTYR":"1 1 1 0 0","CTYR":"1 1 1 0 0","DTYR":"1 1 1 0 0",
+"ASN":"1 1 1 1 0","AASN":"1 1 1 1 0","BASN":"1 1 1 1 0","CASN":"1 1 1 1 0","DASN":"1 1 1 1 0",
+"LYS":"1 1 1 0 1","ALYS":"1 1 1 0 1","BLYS":"1 1 1 0 1","CLYS":"1 1 1 0 1","DLYS":"1 1 1 0 1",
+"ARG":"1 1 1 1 1","AARG":"1 1 1 1 1","BARG":"1 1 1 1 1","CARG":"1 1 1 1 1","DARG":"1 1 1 1 1",
+"ALA":"0 1 1 0 0","AALA":"0 1 1 0 0","BALA":"0 1 1 0 0","CALA":"0 1 1 0 0","DALA":"0 1 1 0 0",
+"VAL":"0 1 1 1 0","AVAL":"0 1 1 1 0","BVAL":"0 1 1 1 0","CVAL":"0 1 1 1 0","DVAL":"0 1 1 1 0",
+"GLY":"0 1 1 0 1","AGLY":"0 1 1 0 1","BGLY":"0 1 1 0 1","CGLY":"0 1 1 0 1","DGLY":"0 1 1 0 1",
+"TRP":"0 1 1 1 1","ATRP":"0 1 1 1 1","BTRP":"0 1 1 1 1","CTRP":"0 1 1 1 1","DTRP":"0 1 1 1 1",
+"CYS":"0 0 1 1 0","ACYS":"0 0 1 1 0","BCYS":"0 0 1 1 0","CCYS":"0 0 1 1 0","DCYS":"0 0 1 1 0"
 }
 
 encodedAaNames = []
@@ -227,6 +233,8 @@ for element in x:
 
         if point == len(element)-3:
             break
+
+        #print(element)
 
         a = ((element[point+1][2]))
         b = ((element[point+2][2]))
@@ -292,16 +300,19 @@ for element in x:
                     c_4[1] += c_2[1] - a_3[1]
                     c_4[2] += c_2[2] - a_3[2]
 
-                #print(a_3[0])
+
 
         #encodedAaNames[i].append([aadict.get(a),aadict.get(b),aadict.get(c),a_4.mag,b_4.mag,c_4.mag])
         encodedAaNames[i].append([aadict.get(a),aadict.get(b),aadict.get(c),a_4[0],a_4[1],a_4[2],b_4[0],b_4[1],b_4[2],c_4[0],c_4[1],c_4[2]])
+    print(encodedAaNames[i][0])
 
-
-print("encodedNames")
-print(encodedAaNames)
-
-
+#print("encodedNames")
+#print(encodedAaNames)
+'''''
+for element in encodedAaNames:
+    for point in element:
+        print(point)
+'''
 i=-1
 j=-1
 for element in encodedAaNames:
@@ -318,17 +329,17 @@ for element in encodedAaNames:
         encodedAaNames[i][point+1].append(angles[i][point+1][0])
 
 
-print(encodedAaNames)
+#print(encodedAaNames)
 
 f_2 = open("text.txt","w")
 text = ""
-print("encodedAaNames Points")
+#print("encodedAaNames Points")
 for element in encodedAaNames:
     for point in element:
         text = ""
         for point_2 in point:
             text += str(point_2) + "  "
-        print(text)
+        #print(text)
         if(text.__contains__("p  d  b")):
             text = ""
         f_2.write("%s \r \n" % text)
