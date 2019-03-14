@@ -55,7 +55,7 @@ vectors = []
 #angles_2 = []
 i=-1
 
-#calculate angles between vectors and planes
+#calculate angles between vectors
 for element in x:
     i+=1
     angles.append([element[0]])
@@ -214,6 +214,7 @@ for element in encodedAaNames:
 
 f_2 = open("text.txt","w")
 text = ""
+
 #write to file
 for element in encodedAaNames:
     for point in element:
