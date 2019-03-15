@@ -51,7 +51,7 @@ vectors = []
 
 i=-1
 
-#calculate angles between vectors planes
+#calculate angles between vectors and planes
 for element in x:
     i+=1
     plane_angles.append([element[0]])
