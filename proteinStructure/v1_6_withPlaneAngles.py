@@ -48,13 +48,35 @@ angles = []
 plane_angles = []
 vectors = []
 #angles_2 = []
+
 i=-1
 
-#calculate angles between vectors and planes
+#calculate angles between vectors planes
 for element in x:
     i+=1
-    angles.append([element[0]])
     plane_angles.append([element[0]])
+    angles.append([element[0]])
+    for point in range(0, len(element)):
+
+        if point == len(element) - 3:
+            break
+        # print([element[0]],(element[point + 3][3]), (element[point + 3][4]), (element[point + 3][5]))
+        try:
+            a = np.array([float(element[point + 1][3]), float(element[point + 1][4]), float(element[point + 1][5])])
+            b = np.array([float(element[point + 2][3]), float(element[point + 2][4]), float(element[point + 2][5])])
+            c = np.array([float(element[point + 3][3]), float(element[point + 3][4]), float(element[point + 3][5])])
+        except:
+            continue
+
+        ba = a - b
+        bc = c - b
+
+        cosine_angle = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc))
+        # print(cosine_angle)
+        angle = np.arccos(cosine_angle)
+
+        angles[i].append([np.degrees(angle)])
+
     for point in range(0,len(element)):
 
         if point == len(element)-4:
@@ -75,10 +97,6 @@ for element in x:
         cb = b - c
         cd = d - c
 
-        cosine_angle = np.dot(ba, bc) / (np.linalg.norm(ba) * np.linalg.norm(bc))
-
-        angle = np.arccos(cosine_angle)
-
         first_normal = np.cross(ba,bc)
         second_normal = np.cross(cb,cd)
 
@@ -87,10 +105,7 @@ for element in x:
 
 
         #print(np.degrees(angle))
-        angles[i].append([np.degrees(angle)])
         plane_angles[i].append([np.degrees(angle_2)])
-
-
 
 
 aadict = {
