@@ -24,20 +24,15 @@ for filename in glob.glob(os.path.join('*.pdb')):
             if line.__contains__("ENDMDL"):
                 break
 
-            if(line.__contains__("ATOM") and line.__contains__(" CA ")):
-               x[j].append(["CA"])
-               i = i + 1
-
 
             if line.__contains__("ATOM") and line.__contains__(" CA "):
+               x[j].append(["CA"])
+               i = i + 1
                x[j][a + 1].append(line.split()[1])
                x[j][a + 1].append(line.split()[3])
                x[j][a + 1].append(line.split()[6])
                x[j][a + 1].append(line.split()[7])
                x[j][a + 1].append(line.split()[8])
-
-
-
 
 #print(x)
 
@@ -214,7 +209,6 @@ for element in encodedAaNames:
 
 f_2 = open("text.txt","w")
 text = ""
-
 #write to file
 for element in encodedAaNames:
     for point in element:
