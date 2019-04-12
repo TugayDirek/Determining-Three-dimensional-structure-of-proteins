@@ -360,7 +360,8 @@ def writeToFile(encodedAaNames,orderedCluster):
 
     i=0
     for element_2 in orderedCluster:
-        f_2 = open("results/text"+str(i)+".txt", "w")
+
+        f_2 = open("results/text"+str(i)+"- length("+str(len(element_2))+")"+".txt", "w")
         i+=1
         text = ""
         for element_3 in element_2:
