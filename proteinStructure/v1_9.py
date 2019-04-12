@@ -328,7 +328,7 @@ def arrangeClusters(pairwiseDistanceMatrix):
     # print(y)
     Z = average(y)
 
-    clusters = fcluster(Z, 0.83, criterion='distance')
+    clusters = fcluster(Z, 0.8, criterion='distance')
     numberOfClusters = max(clusters)
 
 
@@ -345,6 +345,7 @@ def arrangeClusters(pairwiseDistanceMatrix):
     # print(Z)
     #fig = plt.figure(figsize=(25, 10))
     dn = dendrogram(Z)
+    plt.savefig('result.png')
     plt.show()
     #print(Z)
     #print(clusters)
@@ -374,26 +375,32 @@ def writeToFile(encodedAaNames,orderedCluster):
                     f_2.write("%s \r \n" % text)
 
         f_2.close()
-
+print("reading data...")
 readFromFile(data)
-print("reading data done")
 deletePoorData(data)
+print("done")
+print("calculating angles...")
 calculateAngles(data)
-print("calculating data done")
+print("done")
 
+print("inserting encoded names...")
 insertEncodedNames(data)
-print("inserting encoded names done")
+print("done")
 
+print("pairwise alignment...")
 pairwiseAlgnCode(data)
 pairwiseAlignment(pairwiseAaNames)
-print("pairwise alignment done")
+print("done")
+
 
 constructDistMatrix(pairwiseResultMatrix)
 
+print("inserting angles...")
 arrangeClusters(pairwiseDistanceMatrix)
 insertVectorAngles(encodedAaNames)
 insertPlaneAngles(encodedAaNames)
-print("inserting angles done")
+print("done")
+
 
 writeToFile(encodedAaNames,orderedCluster)
 
